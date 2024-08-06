@@ -1,8 +1,8 @@
-### **Overview:**
+## **Overview:**
 
 This project aims to bring the use of triggers, materialized views, and functions to a Business Intelligence process, where this data could be used to populate a dashboard in Power BI or Streamlit, for example.
 
-### Project 1: Advanced SQL Analysis with Materialized Views, Functions, and Triggers
+## Project 1: Advanced SQL Analysis with Materialized Views, Functions, and Triggers
 
 In this project, I designed and implemented a comprehensive SQL solution to analyze monthly accumulated sales using advanced database techniques. The project includes:
 
@@ -54,7 +54,7 @@ EXECUTE FUNCTION func_refresh_accumulated_monthly_sales_mv();
 
 This setup ensures real-time and accurate sales analysis with minimal manual intervention, enhancing the performance and reliability of sales reporting, essentially functioning as an ETL process.
 
-### Project 2: Employee Title Change Audit with Stored Procedures and Triggers
+## Project 2: Employee Title Change Audit with Stored Procedures and Triggers
 
 This project focuses on maintaining an audit trail for employee title changes using SQL stored procedures and triggers. The implementation includes:
 
@@ -104,6 +104,68 @@ EXECUTE FUNCTION func_check_employee_title();
 
 This solution provides a robust mechanism for tracking and auditing changes to employee data, ensuring transparency and accountability in HR operations.
 
-### **Conclusion:**
+## **Conclusion:**
 
 In this project, I developed advanced SQL solutions to optimize data management and analysis. For sales analysis, I created a materialized view to aggregate monthly sales data, complemented by functions and triggers to ensure real-time updates and efficient reporting. For employee data auditing, I implemented a comprehensive system using stored procedures and triggers to track and log employee title changes, maintaining a detailed audit trail. These solutions significantly enhance data integrity, operational efficiency, and the reliability of business processes.
+
+## **How to run:**
+
+After the analysis, I used Docker to store the database, ensuring a portable, consistent, and isolated environment that can be easily shared and scaled. Docker enhances the development process by allowing seamless replication of the database setup across different systems.
+
+## Configuration
+
+### Manually
+
+* Install and configure PostgreSQL and pgadmin
+* Import the provided `nortwhind.sql` file to populate your database
+
+### With Docker and Docker Compose
+
+* You need to install Docker and Docker Compose
+
+* [Start with Docker](https://www.docker.com/get-started)
+* [Install Docker Compose](https://docs.docker.com/compose/install/) 
+
+### Steps to Docker configuration:
+
+1. **Initialize Docker Compose** Run the command below using git bash inside the folder to upload the services:
+    
+    ```
+    docker-compose up
+    ```
+    
+    Wait for the configuration messages, such as:
+    
+    ```csharp
+    Creating network "northwind_psql_db" with driver "bridge"
+    Creating volume "northwind_psql_db" with default driver
+    Creating volume "northwind_psql_pgadmin" with default driver
+    Creating pgadmin ... done
+    Creating db      ... done
+    ```
+       
+2. **Conectar o PgAdmin** Access PgAdmin via the URL: [http://locpostgrealhost:5050](http://localhost:5050), with the password `postgres`. 
+
+Set up a new server in PgAdmin:
+
+    * **General tab**:
+        * Name: db
+    * **Connection tab**:
+        * Host name: db
+        * Username: postgres
+        * Password: natan 
+    Then select the “northwind” database".
+
+3. **Stopping Docker Compose** Stop the started server by the command `docker-compose up` using Ctrl-C and remove the containers with:
+    
+    ```
+    docker-compose down
+    ```
+    
+4. **Files and Persistence** Your changes to the Postgres databases will be persisted on the Docker volume `postgresql_data` and can be recovered by restarting Docker Compose with `docker-compose up`. To delete the data from the database, run:
+    
+    ```
+    docker-compose down -v
+    ```
+
+
