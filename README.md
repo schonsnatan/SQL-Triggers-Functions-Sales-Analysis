@@ -4,6 +4,8 @@ This project aims to bring the use of triggers, materialized views, and function
 
 ## Project 1: Advanced SQL Analysis with Materialized Views, Functions, and Triggers
 
+![Project 1](project_1.png)
+
 In this project, I designed and implemented a comprehensive SQL solution to analyze monthly accumulated sales using advanced database techniques. The project includes:
 
 - **Materialized Views**: Created a materialized view to efficiently aggregate and store accumulated monthly sales data.
@@ -55,6 +57,8 @@ EXECUTE FUNCTION func_refresh_accumulated_monthly_sales_mv();
 This setup ensures real-time and accurate sales analysis with minimal manual intervention, enhancing the performance and reliability of sales reporting, essentially functioning as an ETL process.
 
 ## Project 2: Employee Title Change Audit with Stored Procedures and Triggers
+
+![Project 2](project_2.png)
 
 This project focuses on maintaining an audit trail for employee title changes using SQL stored procedures and triggers. The implementation includes:
 
