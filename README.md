@@ -128,7 +128,7 @@ After the analysis, I used Docker to store the database, ensuring a portable, co
 
 ### Steps to Docker configuration:
 
-1. **Initialize Docker Compose** Run the command below using git bash inside the folder to upload the services:
+1. **Initialize Docker Compose:** Run the command below using git bash inside the folder to upload the services:
     
     ```
     docker-compose up
@@ -144,7 +144,7 @@ After the analysis, I used Docker to store the database, ensuring a portable, co
     Creating db      ... done
     ```
        
-2. **Conectar o PgAdmin** Access PgAdmin via the URL: [http://locpostgrealhost:5050](http://localhost:5050), with the password `postgres`. 
+2. **Conectar o PgAdmin:** Access PgAdmin via the URL: [http://locpostgrealhost:5050](http://localhost:5050), with the password `postgres`. 
 
 Set up a new server in PgAdmin:
 
@@ -156,13 +156,15 @@ Set up a new server in PgAdmin:
         * Password: natan 
     Then select the “northwind” database".
 
-3. **Stopping Docker Compose** Stop the started server by the command `docker-compose up` using Ctrl-C and remove the containers with:
+4. **Insert the SQL code:** Insert the SQL code: "accumulated_sales.sql" and "audit_employee.sql". To test the accumulated sales project you can insert new data with the northwind_insert_sales.sql code.
+
+3. **Stopping Docker Compose:** Stop the started server by the command `docker-compose up` using Ctrl-C and remove the containers with:
     
     ```
     docker-compose down
     ```
     
-4. **Files and Persistence** Your changes to the Postgres databases will be persisted on the Docker volume `postgresql_data` and can be recovered by restarting Docker Compose with `docker-compose up`. To delete the data from the database, run:
+4. **Files and Persistence:** Your changes to the Postgres databases will be persisted on the Docker volume `postgresql_data` and can be recovered by restarting Docker Compose with `docker-compose up`. To delete the data from the database, run:
     
     ```
     docker-compose down -v
